@@ -7,11 +7,9 @@ steps:
 
 # Test without argument
 - name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
-  env: 'GOOGLE_APPLICATION_CREDENTIALS=gac.json'
 
 # Test with argument
 - name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
-  env: 'GOOGLE_APPLICATION_CREDENTIALS'
   args: ['anothervariabletest']
 
 # Push the image
