@@ -44,7 +44,7 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - '|'
+  - |
     rm -rf /workspace/*
   
 # Test without argument (should attempt run but fail)
