@@ -1,4 +1,4 @@
 'use strict';
 
-# Display the argument value
+// Display the argument value
 console.log(process.argv)
