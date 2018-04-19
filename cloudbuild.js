@@ -14,7 +14,8 @@ async function main () {
 
   // Obtain the current project Id
   const project = await google.auth.getDefaultProjectId();
-
+  console.log('Default Project Id is: '+project); 
+  
   // Setup a resuable object for method calls
   const creds = { projectId: project, auth };
 
