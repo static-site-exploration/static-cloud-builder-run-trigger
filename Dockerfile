@@ -13,6 +13,6 @@ COPY ${service_account_file} /
 
 ENV GOOGLE_APPLICATION_CREDENTIALS=/${service_account_file}
 
-ENTRYPOINT ["/usr/local/bin/node", "cloudbuild"]
-#ENTRYPOINT ["/usr/local/bin/node", "test-argument"]
+ENTRYPOINT ["node", "cloudbuild"]
+#ENTRYPOINT ["node", "test-argument"]
 CMD ["testvalue"]
