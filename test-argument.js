@@ -1,5 +1,5 @@
 'use strict';
 
 // Display the argument value
-console.log('hello from js script')
-console.log(process.argv)
+console.log('Hello.. from js script')
+console.log('Supplied argument is: '+process.argv[2])
