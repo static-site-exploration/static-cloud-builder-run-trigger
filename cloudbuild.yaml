@@ -5,5 +5,12 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/${PROJECT_ID}/run-cloud-build-trigger', '-f', 'Dockerfile', '.']
 
+# Test without argument
+- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+
+# Test with argument
+- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+  args: ['anothervariabletest']
+
 # Push the image
 images: ['gcr.io/${PROJECT_ID}/run-cloud-build-trigger']
