@@ -38,7 +38,15 @@ steps:
   #
   - '--build-arg'
   - 'service_account_file=${_SERVICE_ACCOUNT_FILENAME}'
-
+  
+# Cleanup files to ensure tests run using files only within containers
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - '|'
+    rm -rf /workspace/*
+  
 # Test without argument (should attempt run but fail)
 - name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
 
