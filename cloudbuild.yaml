@@ -40,7 +40,7 @@ steps:
   - 'service_account_file=${_SERVICE_ACCOUNT_FILENAME}'
 
 # Test without argument
-#- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
 
 # Test with argument
 #- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
