@@ -4,5 +4,5 @@ RUN npm install --save googleapis
 
 COPY cloudbuild.js .
 
-ENTRYPOINT ["node", "cloudbuild"]
+ENTRYPOINT ["/usr/local/bin/firebase", "cloudbuild"]
 CMD ["testvalue"]
