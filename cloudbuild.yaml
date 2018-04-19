@@ -14,7 +14,7 @@ substitutions:
 steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', '${_SERVICE_ACCOUNT_FILENAME_GS}', '/workspace/tmp/encrypted_key/${_SERVICE_ACCOUNT_FILENAME_ENC}']
+  args: ['cp', 'gs://${_SERVICE_ACCOUNT_FILENAME_GS}', '${_SERVICE_ACCOUNT_FILENAME_ENC}']
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
