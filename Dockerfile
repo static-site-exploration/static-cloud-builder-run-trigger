@@ -14,3 +14,7 @@ COPY ${service_account_file} /
 
 ENV GOOGLE_APPLICATION_CREDENTIALS=/${service_account_file}
 
+# Node path for distroless is different from node:alpine! 
+ENTRYPOINT ["/nodejs/bin/node", "cloudbuild"]
+#ENTRYPOINT ["/nodejs/bin/node", "test-argument"]
+CMD ["testvalue"]
