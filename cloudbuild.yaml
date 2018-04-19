@@ -1,9 +1,42 @@
 # In this directory, run the following command to build this builder.
 # $ gcloud container builds submit . --config=cloudbuild.yaml
 
+substitutions:
+
+    _SERVICE_ACCOUNT_FILENAME_GS: 'scb-secure/Static-Cloud-Builders-a9fee80ea6d5.enc'
+    _SERVICE_ACCOUNT_FILENAME_ENC: 'google_service_account-Static-Cloud-Builders.enc'
+    _SERVICE_ACCOUNT_FILENAME: 'google_service_account-Static-Cloud-Builders.json'
+    
+    _SERVICE_ACCOUNT_KEY_LOCATION: 'global'
+    _SERVICE_ACCOUNT_KEYRING: 'my-keyring'
+    _SERVICE_ACCOUNT_KEY: 'cloud-build-service-account'
+
 steps:
+
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', '${_SERVICE_ACCOUNT_FILENAME_GS}', '/workspace/tmp/encrypted_key/${_SERVICE_ACCOUNT_FILENAME_ENC}']
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=${_SERVICE_ACCOUNT_FILENAME_ENC}
+  - --plaintext-file=${_SERVICE_ACCOUNT_FILENAME}
+  - --location=${_SERVICE_ACCOUNT_KEY_LOCATION}
+  - --keyring=${_SERVICE_ACCOUNT_KEYRING}
+  - --key=${_SERVICE_ACCOUNT_KEY}
+
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/${PROJECT_ID}/run-cloud-build-trigger', '-f', 'Dockerfile', '.']
+  - 'build'
+  - '--tag=gcr.io/${PROJECT_ID}/run-cloud-build-trigger'
+  #
+  - '--file'
+  - 'Dockerfile'
+  - '.'
+  # Arguments 
+  #
+  - '--build-arg'
+  - 'service_account_file=${_SERVICE_ACCOUNT_FILENAME}'
 
 # Test without argument
 - name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
