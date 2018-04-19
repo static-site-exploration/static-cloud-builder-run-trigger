@@ -2,6 +2,8 @@ FROM gcr.io/cloud-builders/gcloud
 
 # Encrypted key can be stored in Container
 
+RUN gsutil cp gs://scb-secure/Static-Cloud-Builders-a9fee80ea6d5.enc .
+
 RUN gcloud kms decrypt \
   --ciphertext-file=Static-Cloud-Builders-a9fee80ea6d5.enc \
   --plaintext-file=google_service_account-Static-Cloud-Builders.json \
