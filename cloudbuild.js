@@ -22,7 +22,9 @@ async function main () {
   //const trig = await triggers.list(creds);
   //console.log(trig.data); 
 
-  const trigger = 'e50d68ee-819b-41f7-842e-6fa6a6b632f1';
+  //const trigger = 'e50d68ee-819b-41f7-842e-6fa6a6b632f1';
+  const trigger = process.argv[2];
+  
   const repoSource = {
     //  "projectId": string,
     //  "repoName": string,
