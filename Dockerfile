@@ -5,6 +5,8 @@ RUN npm install --save googleapis
 FROM gcr.io/distroless/nodejs
 
 COPY --from=0 node_modules .
+RUN ls ./nodule_modules
+
 COPY cloudbuild.js .
 COPY test-argument.js .
 
