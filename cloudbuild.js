@@ -22,13 +22,18 @@ async function main () {
   
   //console.log('Project Id argument is: '+process.argv[3]); 
   
-  const projectArg = process.argv[3];
-  console.log('Project Id argument is: '+projectArg);
+  console.log('Project Id argument is: '+process.argv[3]);
   
+  var projectSelector;
   if (process.argv[3] == undefined) {
     console.log(".... A")
-    const project = await google.auth.getDefaultProjectId();
+     projectSelector = await google.auth.getDefaultProjectId();
+  } else {
+    console.log(".... B")
+    projectSelector = process.argv[3];
   }
+  
+  const project = projectSelector;
   console.log('Project Id used is: '+project); 
   
   // Setup a resuable object for method calls
