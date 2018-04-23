@@ -22,10 +22,7 @@ async function main () {
   
   console.log('Project Id argument is: '+process.argv[3]); 
   
-  if (typeof process.argv[3] != "undefined") {
-    // is not emtpy
-    const project = process.argv[3];
-  } else if (typeof process.argv[3] == "undefined") {
+  if (typeof process.argv[3] == "undefined") {
     // is emtpy
     const project = await google.auth.getDefaultProjectId();
   }
