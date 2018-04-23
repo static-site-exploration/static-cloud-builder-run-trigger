@@ -23,7 +23,7 @@ async function main () {
   if (process.argv[3]) {
     // is not emtpy
     const project = process.argv[3];
-  } else {
+  } else if (!process.argv[3] !== null && !process.argv[3] !== '') {
     // is emtpy
     const project = await google.auth.getDefaultProjectId();
   }
