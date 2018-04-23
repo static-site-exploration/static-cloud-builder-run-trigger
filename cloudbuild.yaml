@@ -29,7 +29,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args:
   - 'build'
-  - '--tag=gcr.io/${PROJECT_ID}/run-cloud-build-trigger'
+  - '--tag=gcr.io/${PROJECT_ID}/trigger-api-broker'
   #
   - '--file'
   - 'Dockerfile'
@@ -48,15 +48,15 @@ steps:
     rm -rf /workspace/*
   
 # Test without argument (should attempt run but fail)
-- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+- name: 'gcr.io/$PROJECT_ID/trigger-api-broker'
 
 # Test with argument to be build the scb hugo container (should run the build sucessfully)
-- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+- name: 'gcr.io/$PROJECT_ID/trigger-api-broker'
   args: ['e50d68ee-819b-41f7-842e-6fa6a6b632f1']
 
 # Test with argument to set the default project & build the scb hugo container (should run the build sucessfully)
-- name: 'gcr.io/$PROJECT_ID/run-cloud-build-trigger'
+- name: 'gcr.io/$PROJECT_ID/trigger-api-broker'
   args: ['e50d68ee-819b-41f7-842e-6fa6a6b632f1','static-cloud-builders']
 
 # Push the image
-images: ['gcr.io/${PROJECT_ID}/run-cloud-build-trigger']
+images: ['gcr.io/${PROJECT_ID}/trigger-api-broker']
