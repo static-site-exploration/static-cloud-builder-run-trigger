@@ -20,9 +20,12 @@ async function main () {
   
   // If no argument is project id supplied use get default auth
   
-  console.log('Project Id argument is: '+process.argv[3]); 
+  //console.log('Project Id argument is: '+process.argv[3]); 
   
-  if (typeof process.argv[3] == "string") {
+  const projectArg = process.argv[3]
+  console.log('Project Id argument is: '+projectArg);
+  
+  if (typeof process.argv[3] == "undefined") {
     // is emtpy
     const project = await google.auth.getDefaultProjectId();
   }
