@@ -27,7 +27,7 @@ async function main () {
   
   if (process.argv[3] == undefined) {
     console.log(".... A")
-    //const project = await google.auth.getDefaultProjectId();
+    const project = await google.auth.getDefaultProjectId();
   }
   console.log('Project Id used is: '+project); 
   
