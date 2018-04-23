@@ -20,6 +20,8 @@ async function main () {
   
   // If no argument is project id supplied use get default auth
   
+  console.log('Project Id argument is: '+process.argv[3]); 
+  
   if (process.argv[3]) {
     // is not emtpy
     const project = process.argv[3];
