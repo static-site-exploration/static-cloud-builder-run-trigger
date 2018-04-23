@@ -13,11 +13,21 @@ async function main () {
   });
 
   // Obtain the current project Id
-  //const project = await google.auth.getDefaultProjectId();
+  //
   
   // FOR TESTING
-  const project = 'static-cloud-runners';
-  console.log('Default Project Id is: '+project); 
+  //const project = 'static-cloud-runners';
+  
+  // If no argument is project id supplied use get default auth
+  
+  if (process.argv[3]) {
+    // is not emtpy
+    const project = process.argv[3];
+  } else {
+    // is emtpy
+    const project = await google.auth.getDefaultProjectId();
+  }
+  console.log('Project Id used is: '+project); 
   
   // Setup a resuable object for method calls
   const creds = { projectId: project, auth };
