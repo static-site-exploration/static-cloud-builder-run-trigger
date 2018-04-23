@@ -13,7 +13,10 @@ async function main () {
   });
 
   // Obtain the current project Id
-  const project = await google.auth.getDefaultProjectId();
+  //const project = await google.auth.getDefaultProjectId();
+  
+  // FOR TESTING
+  const project = 'static-cloud-runners';
   console.log('Default Project Id is: '+project); 
   
   // Setup a resuable object for method calls
