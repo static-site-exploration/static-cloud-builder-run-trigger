@@ -12,16 +12,7 @@ async function main () {
     scopes: ['https://www.googleapis.com/auth/cloud-platform']
   });
 
-  // Obtain the current project Id
-  //
-  
-  // FOR TESTING
-  //const project = 'static-cloud-runners';
-  
-  // If no argument is project id supplied use get default auth
-  
-  //console.log('Project Id argument is: '+process.argv[3]); 
-  
+  // Set the current project Id, obtain automatically is not set in argument
   console.log('Project Id argument is: '+process.argv[3]);
   
   var projectSelector;
